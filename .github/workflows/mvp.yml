@@ -3,7 +3,7 @@ name: MVP Workflow
 on:
   push:
     branches:
-      - main
+      - mvp
 
 jobs:
   build:
