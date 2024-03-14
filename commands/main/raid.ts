@@ -40,7 +40,7 @@ export class RaidController implements RaidInterface
                         {
                             if (this.mob_list.includes(bot.entities[mobentity].name!)) //確認是否在目標清單內
                             {
-                                bot.attack(bot.entities[mobentity],false); //攻擊
+                                bot.attack(bot.entities[mobentity]); //攻擊
                                 //確認是否有沒有目標怪物
                                 if (this.isNoMob) 
                                 {
