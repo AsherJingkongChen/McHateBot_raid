@@ -15,7 +15,6 @@ jobs:
           #   builder: build
           - os: macos-latest
             builder: build-nix
-            assets: exe/**/*
 
     steps:
       - name: Checkout code
@@ -37,8 +36,11 @@ jobs:
       - name: Build application
         run: pnpm run ${{ matrix.platforms.builder }}
 
+      - name: Create archive
+        run: zip -r exe/ McHateBot_raid.${{ github.ref_name }}.zip
+
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: ${{ matrix.platforms.assets }}
+          files: McHateBot_raid.${{ github.ref_name }}.zip
