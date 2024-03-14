@@ -2,11 +2,11 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - '*'
 
 jobs:
-  build:
+  build-release:
     runs-on: ${{ matrix.platforms.os }}
     strategy:
       matrix:
