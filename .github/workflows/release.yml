@@ -1,9 +1,9 @@
-name: MVP Workflow
+name: Release
 
 on:
   push:
     branches:
-      - mvp
+      - main
 
 jobs:
   build:
@@ -11,8 +11,10 @@ jobs:
     strategy:
       matrix:
         platforms:
-          - os: ubuntu-latest
+          # - os: windows-latest
+          #   builder: build
           - os: macos-latest
+            builder: build-nix
 
     steps:
       - name: Checkout code
@@ -32,4 +34,10 @@ jobs:
         run: pnpm install
 
       - name: Build application
-        run: pnpm run build-nix
+        run: pnpm run ${{ matrix.platforms.builder }}
+
+      - name: Release maybe
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: exe/
