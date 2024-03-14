@@ -39,7 +39,7 @@ jobs:
       - name: Create archive
         run: |
           mv exe McHateBot_raid
-          zip -9r McHateBot_raid.${{ github.ref_name }}.zip exe/
+          zip -9r McHateBot_raid.${{ github.ref_name }}.zip McHateBot_raid/
 
       - name: Release
         uses: softprops/action-gh-release@v2
