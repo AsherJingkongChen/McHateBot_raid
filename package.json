@@ -5,7 +5,7 @@
   "main": "McHateBot.ts",
   "scripts": {
     "build": "cmd /C scripts\\build.bat",
-    "build-macos": "scripts/build-macos.sh",
+    "build-nix": "scripts/build-nix.sh",
     "swagger": "node ./swagger.js"
   },
   "dependencies": {
