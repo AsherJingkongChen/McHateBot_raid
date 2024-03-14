@@ -37,7 +37,7 @@ jobs:
         run: pnpm run ${{ matrix.platforms.builder }}
 
       - name: Create archive
-        run: zip -9r exe/ McHateBot_raid.${{ github.ref_name }}.zip
+        run: zip -9r McHateBot_raid.${{ github.ref_name }}.zip exe/
 
       - name: Release
         uses: softprops/action-gh-release@v2
